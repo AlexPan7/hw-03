@@ -1,0 +1,40 @@
+@import '../../../assets/styles/mixin';
+
+.productDetail {
+  padding: 3rem 0;
+
+  h1 {
+    color: var(--white-color);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    @include media('tablet') {
+      font-size: 3rem;
+    }
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+  }
+}
+
+.productPrice {
+  color: var(--white-color);
+  margin: 0 0 2rem;
+}
+
+.productimages {
+  columns: 2;
+  gap: 2rem;
+
+
+  @include media('tablet') {
+    columns: 3;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+}

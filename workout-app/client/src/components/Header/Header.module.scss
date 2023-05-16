@@ -1,0 +1,30 @@
+@import '../../assets/styles/mixin';
+
+.header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  @include media('desktop') {
+    padding: 3.75rem 0;
+  }
+}
+
+.toggleThemeBtn {
+  text-transform: uppercase;
+  margin-left: 2rem;
+  background: none;
+  padding: 0;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--acent-color);
+  }
+
+  .light & {
+    background: #000;
+  }
+}
