@@ -17,7 +17,9 @@ body {
 
 .light {
   background: #ccc;
-  color: var(--black-color);
+  --primary-color: var(--black-color);
+  --secondary-color: var(--black-color);
+  --primary-color-100: var(--black-color);
 }
 
 #root {

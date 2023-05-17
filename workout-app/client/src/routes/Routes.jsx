@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { PublicLayout } from '../layouts';
-import { Home, About, Contact, Blog, NotFound, Login, Post } from '../pages'
+import { Home, About, Contact, Blog, NotFound, Login, Registration, Post } from '../pages'
 
 export const routes = createBrowserRouter ([
  {
@@ -27,6 +27,10 @@ export const routes = createBrowserRouter ([
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/registration',
+      element: <Registration />
     },
     {
       path: '/posts/:id',
