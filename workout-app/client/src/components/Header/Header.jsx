@@ -35,7 +35,7 @@ const Header = () => {
               <>
                 <button onClick={()=> logout()} className={logoutBtn}>Logout</button>
                 <span className={divider}>/</span>
-                <NavItem link="/profile">Profile</NavItem>
+                <NavItem link="/dashboard">Dashboard</NavItem>
               </>
             ) : (
               <>
