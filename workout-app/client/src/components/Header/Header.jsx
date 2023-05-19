@@ -32,7 +32,11 @@ const Header = () => {
         <NavItem link="/blog">Blog</NavItem>
         <div className={userBar}>
           {user ? (
-              <button onClick={()=> logout()} className={logoutBtn}>Logout</button>
+              <>
+                <button onClick={()=> logout()} className={logoutBtn}>Logout</button>
+                <span className={divider}>/</span>
+                <NavItem link="/profile">Profile</NavItem>
+              </>
             ) : (
               <>
                 <NavItem link="/login">Login</NavItem>

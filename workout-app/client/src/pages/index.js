@@ -6,5 +6,6 @@ import { NotFound } from "./NotFound";
 import { Post } from './Post';
 import { Login } from './Login';
 import { Registration } from './Registration';
+import { Profile } from './Profile';
 
-export { Home, About, Contact, Blog, Post, Login, Registration, NotFound }
+export { Home, About, Contact, Blog, Post, Login, Registration, Profile, NotFound }

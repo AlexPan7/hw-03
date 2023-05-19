@@ -1,11 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import AuthRoute from './AuthRoute';
+import PrivateRoute from './PrivateRoute';
 import { PublicLayout } from '../layouts';
-import { Home, About, Contact, Blog, NotFound, Login, Registration, Post } from '../pages'
+import { Home, About, Contact, Blog, NotFound, Login, Registration, Profile, Post } from '../pages'
 
 export const routes = createBrowserRouter ([
  {
-  path: '/',
   element: <PublicLayout />,
   children: [
     {
@@ -25,14 +26,6 @@ export const routes = createBrowserRouter ([
       element: <Blog />
     },
     {
-      path: '/login',
-      element: <Login />
-    },
-    {
-      path: '/registration',
-      element: <Registration />
-    },
-    {
       path: '/posts/:id',
       element: <Post />
     },
@@ -41,5 +34,37 @@ export const routes = createBrowserRouter ([
       element: <NotFound />
     }
   ]
- }
+ },
+ {
+  element: <AuthRoute redirectPath={'/profile'} />,
+  children: [
+    {
+      element: <PublicLayout />,
+      children: [
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/registration',
+          element: <Registration />
+        },
+      ]
+    }
+  ]
+  },
+  {
+    element: <PrivateRoute redirectPath={'/'} />,
+    children: [
+      {
+        element: <PublicLayout />,
+        children: [
+          {
+            path: '/profile',
+            element: <Profile />
+          }
+        ]
+      }
+    ]
+  },
 ])
