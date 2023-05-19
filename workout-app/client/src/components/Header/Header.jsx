@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './Header.module.scss';
 import Logo from '../Logo';
 import BurgerButton from '../BurgerButton';
 import { NavList, NavItem } from '../Nav';
 import { useTheme } from '../../context/ThemeContext';
+import { AuthContext } from '../../context/auth';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = () => {
-  const {header, toggleThemeBtn} = styles;
+  const {header, toggleThemeBtn, userBar, divider, logoutBtn} = styles;
   const { theme, toggleTheme } = useTheme();
+  const { user, logout } = useContext(AuthContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,9 +30,21 @@ const Header = () => {
         <NavItem link="/about">About</NavItem>
         <NavItem link="/contact">Contact</NavItem>
         <NavItem link="/blog">Blog</NavItem>
-        <NavItem link="/login">Login</NavItem>
+        <div className={userBar}>
+          {user ? (
+              <button onClick={()=> logout()} className={logoutBtn}>Logout</button>
+            ) : (
+              <>
+                <NavItem link="/login">Login</NavItem>
+                <span className={divider}>/</span>
+                <NavItem link="/registration">Registration</NavItem>
+              </>
+          )}
+        </div>
+        <button className={toggleThemeBtn} onClick={handleClick}>
+          {theme === 'light' ? <FaMoon /> : <FaSun />}
+        </button>
       </NavList>
-      <button className={toggleThemeBtn} onClick={handleClick}>--Toggle theme</button>
     </header>
   )
 }
